@@ -22,7 +22,7 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { background: var(--bg); color: var(--text); font-family: 'Barlow', sans-serif; font-weight: 300; min-height: 100vh; overflow-x: hidden; }
 
-  header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 64px; position: sticky; top: 0; }
+  header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 64px; position: sticky; top: 0; z-index: 100; }
   .logo-block { display: flex; align-items: center; gap: 14px; }
   .logo-badge { background: var(--daf-orange); color: #000; font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.4rem; letter-spacing: 1px; padding: 4px 12px; clip-path: polygon(4px 0%,100% 0%,calc(100% - 4px) 100%,0% 100%); }
   .logo-subtitle { font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--text-muted); }
@@ -47,7 +47,7 @@
 
   .table-container { padding: 1.5rem 2rem 3rem; overflow-x: auto; }
   table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
-  thead th { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-muted); padding: 10px 14px; text-align: left; }
+  thead th { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-muted); padding: 10px 14px; text-align: left; cursor: pointer; user-select: none; }
   thead th:hover { color: var(--daf-orange); }
   thead th .sort-arrow { display: inline-block; margin-left: 4px; opacity: 0.4; font-size: 0.65rem; }
   thead th.active { color: var(--daf-orange); }
@@ -152,7 +152,6 @@
 const partsData = [
   {article:`2115828`,name:`Ремонтный набор реактивной тяги`,spec:`Ремонтный набор реактивной тяги — это комплект деталей,о`},
   {article:`2314588`,name:`датчик износа тормозной колодки`,spec:`Электронный датчик - износа тормозной колодки — это устро`},
-  {article:`2336129`,name:`Клемма аккумулятора (перемычка) с электронным блоком контроля заряда.`,spec:`Клемма аккумулятора`},
 ];
 
 function renderTable() {
@@ -180,11 +179,9 @@ function renderTable() {
 }
 
 function sortTable(colIndex) {
-  // Placeholder sorting function
   console.log('Sort by column:', colIndex);
 }
 
-// Initialize table on page load
 document.addEventListener('DOMContentLoaded', renderTable);
 </script>
 </body>
